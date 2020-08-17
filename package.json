@@ -21,14 +21,17 @@
   },
   "homepage": "https://github.com/HenrikDK2/ReactBoilerPlate#readme",
   "dependencies": {
+    "@emotion/core": "^10.0.34",
     "preact": "^10.4.7",
-    "preact-compat": "^3.19.0"
+    "preact-compat": "^3.19.0",
+    "recoil": "0.0.10"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "babel-plugin-emotion": "^10.0.33",
     "copy-webpack-plugin": "^6.0.3",
     "html-webpack-plugin": "^4.3.0",
     "terser-webpack-plugin": "^4.1.0",

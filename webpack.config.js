@@ -67,7 +67,6 @@ module.exports = {
                 progressive: true,
                 quality: 60,
               },
-              // optipng.enabled: false will disable optipng
               optipng: {
                 enabled: false,
               },
