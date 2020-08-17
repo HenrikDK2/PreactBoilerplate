@@ -1,0 +1,39 @@
+{
+  "name": "preactboilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenrikDK2/ReactBoilerPlate.git"
+  },
+  "keywords": [
+    "template, preact"
+  ],
+  "author": "Henrik Mundt Milo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenrikDK2/ReactBoilerPlate/issues"
+  },
+  "homepage": "https://github.com/HenrikDK2/ReactBoilerPlate#readme",
+  "dependencies": {
+    "preact": "^10.4.7",
+    "preact-compat": "^3.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "html-webpack-plugin": "^4.3.0",
+    "terser-webpack-plugin": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
