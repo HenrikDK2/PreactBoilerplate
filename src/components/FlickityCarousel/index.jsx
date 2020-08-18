@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Flickity from "react-flickity-component";
 import "flickity/css/flickity.css";
+import Icon from "../Icon";
 import Image from "../Image";
 
 const animateCss = css`
@@ -71,8 +72,6 @@ const Container = styled.article`
 `;
 
 const Carousel = styled(Flickity)`
-  margin: 0 auto;
-  max-width: 850px;
   .flickity-page-dots {
     position: static;
     margin-top: 50px;
@@ -93,18 +92,43 @@ const Carousel = styled(Flickity)`
 `;
 
 const imageCss = css`
-  & figure {
+  & {
     height: 100%;
     width: 100%;
   }
-  & img {
+  & > img {
     object-fit: cover;
   }
 `;
 
-const Button = styled.button`
-  height: 50px;
-  width: 50px;
+const iconRightCss = css`
+  font-size: 3rem;
+  position: absolute;
+  right: 100px;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid grey;
+  top: 50%;
+  transform: translateY(-100px);
+  @media (max-width: 1230px) {
+    position: static;
+    margin-top: 200px;
+  }
+`;
+
+const iconLeftCss = css`
+  ${iconRightCss}
+  left:100px;
+`;
+
+const Article = styled.article`
+  position: relative;
+`;
+
+const ButtonContainer = styled.div`
+  justify-content: center;
+  display: flex;
+  gap: 10px;
 `;
 
 function FlickityCarousel() {
@@ -113,6 +137,7 @@ function FlickityCarousel() {
     draggable: false,
     prevNextButtons: false,
     accessibility: false,
+    wrapAround: true,
     percentPosition: true,
     groupCells: window.innerWidth < 500 ? 1 : 2,
   });
@@ -144,7 +169,7 @@ function FlickityCarousel() {
   }, [flickityRef]);
 
   return (
-    <section>
+    <Article>
       <Carousel
         key={flickityOptions ? flickityOptions.groupCells : 3}
         options={flickityOptions}
@@ -161,21 +186,11 @@ function FlickityCarousel() {
           );
         })}
       </Carousel>
-      <Button
-        onClick={(e) => {
-          flickityRef.previous();
-        }}
-      >
-        Previous
-      </Button>
-      <Button
-        onClick={(e) => {
-          flickityRef.next();
-        }}
-      >
-        Next
-      </Button>
-    </section>
+      <ButtonContainer>
+        <Icon onClick={() => flickityRef.previous()} style={iconLeftCss} icon={"arrow-left"} />
+        <Icon onClick={() => flickityRef.next()} style={iconRightCss} icon={"arrow-right"} />
+      </ButtonContainer>
+    </Article>
   );
 }
 

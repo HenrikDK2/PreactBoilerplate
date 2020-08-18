@@ -19,10 +19,10 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Image = ({ src, alt, style, href, to }) => {
+const Image = ({ src, alt, style, href, to, title, altLink }) => {
   if (to) {
     return (
-      <Link css={style} to={to}>
+      <Link css={style} to={to} title={title} alt={altLink}>
         <Figure>
           <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
         </Figure>
@@ -30,7 +30,7 @@ const Image = ({ src, alt, style, href, to }) => {
     );
   } else if (href) {
     return (
-      <A css={style} href={href}>
+      <A css={style} href={href} title={title} alt={altLink}>
         <Figure>
           <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
         </Figure>
@@ -38,7 +38,7 @@ const Image = ({ src, alt, style, href, to }) => {
     );
   } else {
     return (
-      <Figure css={style}>
+      <Figure css={style} title={title}>
         <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
       </Figure>
     );
