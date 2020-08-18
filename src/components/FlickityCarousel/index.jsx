@@ -104,7 +104,7 @@ const imageCss = css`
 const iconRightCss = css`
   font-size: 3rem;
   position: absolute;
-  right: 100px;
+  right: -150px;
   cursor: pointer;
   padding: 1rem;
   border: 2px solid grey;
@@ -118,11 +118,13 @@ const iconRightCss = css`
 
 const iconLeftCss = css`
   ${iconRightCss}
-  left:100px;
+  left:-150px;
 `;
 
 const Article = styled.article`
   position: relative;
+  max-width: 820px;
+  margin: 0 auto;
 `;
 
 const ButtonContainer = styled.div`
