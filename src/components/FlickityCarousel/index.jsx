@@ -168,10 +168,6 @@ function FlickityCarousel() {
     }
   });
 
-  useEffect(() => {
-    if (flickityRef) flickityRef.next();
-  }, [flickityRef]);
-
   return (
     <Article>
       <Carousel
