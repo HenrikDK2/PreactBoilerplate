@@ -6,8 +6,8 @@ const HeadingStyle = css`
   font-size: 3rem;
 `;
 
-const Index = () => {
-  return <h1 css={HeadingStyle}>Forside</h1>;
+const Contact = () => {
+  return <h1 css={HeadingStyle}>Contact</h1>;
 };
 
-export default Index;
+export default Contact;
