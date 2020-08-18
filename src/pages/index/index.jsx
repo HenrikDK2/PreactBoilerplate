@@ -1,6 +1,5 @@
-/** @jsx jsx */
 import React from "react";
-import { css, jsx } from "@emotion/core";
+import { css } from "styled-components";
 
 const HeadingStyle = css`
   text-align: center;

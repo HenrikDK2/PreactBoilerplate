@@ -1,21 +1,22 @@
-/** @jsx jsx */
 import React from "react";
-import { css, jsx, Global } from "@emotion/core";
 import { render } from "react-dom";
 import { RecoilRoot } from "recoil";
 import Pages from "./pages/Pages.jsx";
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = css`
+const GlobalStyle = createGlobalStyle`
   body {
-    background: #000;
+    margin: 0;
     color: #fff;
+    padding: 0;
+    background: #000;
   }
 `;
 
 const App = () => {
   return (
     <>
-      <Global styles={GlobalStyle} />
+      <GlobalStyle />
       <RecoilRoot>
         <Pages />
       </RecoilRoot>
