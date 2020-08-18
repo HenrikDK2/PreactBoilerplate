@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect, useEffect } from "react";
 import styled, { css } from "styled-components";
 import Flickity from "react-flickity-component";
 import "flickity/css/flickity.css";
+import Image from "../Image";
 
 const animateCss = css`
   border: 2px solid var(--red);
@@ -69,14 +70,6 @@ const Container = styled.article`
   }
 `;
 
-const Img = styled.img`
-  width: 100%;
-  transition: all 0.3s;
-
-  height: 100%;
-  object-fit: cover;
-`;
-
 const Carousel = styled(Flickity)`
   margin: 0 auto;
   max-width: 850px;
@@ -96,6 +89,16 @@ const Carousel = styled(Flickity)`
     & > .is-selected {
       opacity: 1;
     }
+  }
+`;
+
+const imageCss = css`
+  & figure {
+    height: 100%;
+    width: 100%;
+  }
+  & img {
+    object-fit: cover;
   }
 `;
 
@@ -141,7 +144,7 @@ function FlickityCarousel() {
   }, [flickityRef]);
 
   return (
-    <>
+    <section>
       <Carousel
         key={flickityOptions ? flickityOptions.groupCells : 3}
         options={flickityOptions}
@@ -150,8 +153,8 @@ function FlickityCarousel() {
         {Array.from(new Array(7).keys()).map((_, i) => {
           return (
             <Container tabIndex={1} key={i}>
-              <Img
-                onDragStart={(e) => e.preventDefault()}
+              <Image
+                style={imageCss}
                 src="https://raw.githubusercontent.com/HenrikDK2/night-club/master/src/assets/content-img/event-thumb1.jpg"
               />
             </Container>
@@ -172,7 +175,7 @@ function FlickityCarousel() {
       >
         Next
       </Button>
-    </>
+    </section>
   );
 }
 

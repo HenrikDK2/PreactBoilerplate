@@ -22,6 +22,9 @@
   "homepage": "https://github.com/HenrikDK2/ReactBoilerPlate#readme",
   "dependencies": {
     "@emotion/core": "^10.0.34",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "flickity": "^2.2.1",
     "preact": "^10.4.7",
     "preact-compat": "^3.19.0",
