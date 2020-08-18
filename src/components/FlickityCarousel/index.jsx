@@ -31,7 +31,7 @@ const Container = styled.article`
   margin: 0 20px;
   position: relative;
   opacity: 1;
-  transition: all 0.3s;
+  transition: border 0.3s;
 
   &::after {
     content: "";
@@ -97,6 +97,8 @@ const imageCss = css`
     width: 100%;
   }
   & > img {
+    transition: filter 0.3s;
+
     object-fit: cover;
   }
 `;
@@ -123,7 +125,7 @@ const iconLeftCss = css`
 
 const Article = styled.article`
   position: relative;
-  max-width: 820px;
+  max-width: 840px;
   margin: 0 auto;
 `;
 
