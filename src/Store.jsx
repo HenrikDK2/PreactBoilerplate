@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-const atomState = atom({
-  key: "atomState",
-  default: null,
+export const IsMenuOpenState = atom({
+  key: "IsMenuOpenState",
+  default: false,
 });

@@ -52,6 +52,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  .ReactModal__Overlay {
+    z-index:999;
+  }
+
 `;
 
 export default GlobalStyle;
