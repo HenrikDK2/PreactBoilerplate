@@ -8,6 +8,8 @@ const Item = styled.li`
   text-align: center;
   margin: 1rem 0;
   padding: 0 1rem;
+  white-space: pre;
+  text-align: center;
   list-style: none;
 `;
 
