@@ -1,6 +1,7 @@
 import React from "react";
 import { css } from "styled-components";
 import Carousel from "../../components/FlickityCarousel";
+import ThemeButton from "../../components/ThemeSwitch";
 
 const HeadingStyle = css`
   text-align: center;
@@ -10,7 +11,9 @@ const HeadingStyle = css`
 const Index = () => {
   return (
     <>
-      <h1 css={HeadingStyle}>Forside</h1> <Carousel />
+      <h1 css={HeadingStyle}>Forside</h1>
+      <ThemeButton />
+      <Carousel />
     </>
   );
 };

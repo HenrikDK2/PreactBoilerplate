@@ -41,12 +41,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-
-  :root{
-    --bgColor: #030203;
-    --red: #ff2a70;
-  }
-
   body {
     margin: 0;
     padding: 0;
@@ -56,6 +50,17 @@ const GlobalStyle = createGlobalStyle`
     z-index:999;
   }
 
+  [data-theme="default"]{
+    --red: #ff2a70;
+  }
+  
+  [data-theme="fun"]{
+    --red: #00ff00;
+  }
+
+  [data-theme="cold"]{
+    --red: #0000ff;
+  }
 `;
 
 export default GlobalStyle;

@@ -169,28 +169,30 @@ function FlickityCarousel() {
   });
 
   return (
-    <Article>
-      <Carousel
-        key={flickityOptions ? flickityOptions.groupCells : 3}
-        options={flickityOptions}
-        flickityRef={(e) => setFlickityRef(e)}
-      >
-        {Array.from(new Array(7).keys()).map((_, i) => {
-          return (
-            <Container tabIndex={1} key={i}>
-              <Image
-                style={imageCss}
-                src="https://raw.githubusercontent.com/HenrikDK2/night-club/master/src/assets/content-img/event-thumb1.jpg"
-              />
-            </Container>
-          );
-        })}
-      </Carousel>
-      <ButtonContainer>
-        <Icon onClick={() => flickityRef.previous()} style={iconLeftCss} icon={"arrow-left"} />
-        <Icon onClick={() => flickityRef.next()} style={iconRightCss} icon={"arrow-right"} />
-      </ButtonContainer>
-    </Article>
+    <>
+      <Article>
+        <Carousel
+          key={flickityOptions ? flickityOptions.groupCells : 3}
+          options={flickityOptions}
+          flickityRef={(e) => setFlickityRef(e)}
+        >
+          {Array.from(new Array(7).keys()).map((_, i) => {
+            return (
+              <Container tabIndex={1} key={i}>
+                <Image
+                  style={imageCss}
+                  src="https://raw.githubusercontent.com/HenrikDK2/night-club/master/src/assets/content-img/event-thumb1.jpg"
+                />
+              </Container>
+            );
+          })}
+        </Carousel>
+        <ButtonContainer>
+          <Icon onClick={() => flickityRef.previous()} style={iconLeftCss} icon={"arrow-left"} />
+          <Icon onClick={() => flickityRef.next()} style={iconRightCss} icon={"arrow-right"} />
+        </ButtonContainer>
+      </Article>
+    </>
   );
 }
 

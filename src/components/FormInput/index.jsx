@@ -14,9 +14,9 @@ const Input = styled.input`
 `;
 
 const ErrorMsg = styled.span`
-  padding: 5px;
   width: max-content;
   display: block;
+  min-height: 25px;
   color: #ae5961;
 `;
 
