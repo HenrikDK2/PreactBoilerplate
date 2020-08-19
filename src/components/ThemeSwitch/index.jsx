@@ -5,7 +5,7 @@ const Button = styled.button``;
 const html = document.documentElement;
 const themes = ["default", "fun", "cold"];
 
-const index = () => {
+const ThemeSwitch = () => {
   const [index, setIndex] = useState(
     localStorage.getItem("i") ? parseInt(localStorage.getItem("i")) : 0
   );
@@ -24,4 +24,4 @@ const index = () => {
   return <Button onClick={() => updateIndex()}>Skift tema</Button>;
 };
 
-export default index;
+export default ThemeSwitch;
