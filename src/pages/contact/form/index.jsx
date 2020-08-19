@@ -18,7 +18,6 @@ const FormComponent = () => {
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Input
         name="name"
-        aria="Name inputfield"
         placeholder="Your full name"
         register={register({
           required: "This field is required",
@@ -28,7 +27,6 @@ const FormComponent = () => {
       <Input
         name="email"
         placeholder="Your Email"
-        aria="Email inputfield"
         register={register({
           required: "This field is required",
           pattern: {
@@ -41,7 +39,6 @@ const FormComponent = () => {
       <Input
         name="tlf"
         placeholder="Your tlf"
-        aria="Tlf inputfield"
         register={register({
           required: "This field is required",
           pattern: {

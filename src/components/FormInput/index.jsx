@@ -31,7 +31,7 @@ const FormInput = ({ style, aria, type, name, placeholder, disabled, register, e
   `;
 
   return (
-    <Label css={style} aria-label={aria} htmlFor={name}>
+    <Label css={style} aria-label={aria ? aria : name + " Inputfield"} htmlFor={name}>
       <Input
         name={name}
         css={Border}
