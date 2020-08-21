@@ -2,7 +2,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
-
+const Dotenv = require("dotenv-webpack");
 module.exports = {
   entry: "./src/App.jsx",
   output: {
@@ -94,6 +94,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, "src/index.html"),
       filename: "index.html",

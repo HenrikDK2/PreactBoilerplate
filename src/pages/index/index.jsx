@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "styled-components";
 import Carousel from "../../components/FlickityCarousel";
-import ThemeButton from "../../components/ThemeSwitch";
+import ThemeButton from "../../components/ThemeButton";
 
 const HeadingStyle = css`
   text-align: center;

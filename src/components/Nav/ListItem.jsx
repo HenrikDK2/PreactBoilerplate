@@ -18,7 +18,7 @@ const underline = css`
     content: "";
     transition: all 0.3s;
     width: 80%;
-    background: var(--red);
+    background: var(--primary);
     height: 4px;
     border-radius: 50%;
     box-shadow: inset 0 0 3px 0 #000;

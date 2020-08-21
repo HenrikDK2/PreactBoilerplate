@@ -41,25 +41,44 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  @keyframes SlideInX{
+    0%{
+      transform:translateX(-500px);
+      opacity:0;
+    }
+
+    100%{
+      transform:translateX(0);
+      opacity:1;
+
+    }
+  }
+
+
   body {
     margin: 0;
     padding: 0;
+    color: var(--primary);
+
   }
 
   .ReactModal__Overlay {
     z-index:999;
   }
+  :root{
+    --content: 1000px;
+  }
 
   [data-theme="default"]{
-    --red: #ff2a70;
+    --primary: #ff2a70;
   }
-  
+
   [data-theme="fun"]{
-    --red: #00ff00;
+    --primary: #00ff00;
   }
 
   [data-theme="cold"]{
-    --red: #0000ff;
+    --primary: #0000ff;
   }
 `;
 

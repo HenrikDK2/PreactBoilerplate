@@ -6,7 +6,7 @@ import Icon from "../Icon";
 import Image from "../Image";
 
 const animateCss = css`
-  border: 2px solid var(--red);
+  border: 2px solid var(--primary);
 
   &::after {
     animation: slideTopIn 0.3s forwards;
@@ -39,7 +39,7 @@ const Container = styled.article`
     top: 0;
     left: 0;
     border-right: 50px solid transparent;
-    border-left: 50px solid var(--red);
+    border-left: 50px solid var(--primary);
     border-bottom: 50px solid transparent;
     animation: slideTopOut 0.3s forwards;
     z-index: 5;
@@ -52,7 +52,7 @@ const Container = styled.article`
     animation: slideBottomOut 0.3s forwards;
     border-top: 50px solid transparent;
     border-left: 50px solid transparent;
-    border-bottom: 50px solid var(--red);
+    border-bottom: 50px solid var(--primary);
     z-index: 5;
   }
 
@@ -82,7 +82,7 @@ const Carousel = styled(Flickity)`
     height: 2rem;
   }
   .flickity-page-dots .dot.is-selected {
-    background: var(--red);
+    background: var(--primary);
   }
   .flickity-slider {
     & > .is-selected {
