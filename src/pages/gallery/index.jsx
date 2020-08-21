@@ -86,8 +86,11 @@ const Gallery = () => {
           {gallery && gallery.data
             ? gallery.data.map((image, i) => {
                 return (
-                  <GridItem onClick={(e) => setGallery({ ...gallery, isOpen: true })}>
-                    <Img src={image.url} key={i} />
+                  <GridItem
+                    key={i}
+                    onClick={(e) => setGallery({ ...gallery, isOpen: true, index: i })}
+                  >
+                    <Img src={image.url} />
                   </GridItem>
                 );
               })
