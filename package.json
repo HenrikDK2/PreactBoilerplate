@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run open && webpack-dev-server --config webpack.config.js --mode=development",
     "build": "npm run remove && webpack --config webpack.config.js --mode=production",
+    "deploy": "npm run build && netlify deploy --prod",
     "open": "start http://localhost:8080",
     "remove": "del-cli -f dist"
   },
