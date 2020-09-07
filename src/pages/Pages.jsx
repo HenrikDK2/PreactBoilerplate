@@ -4,13 +4,11 @@ import Gallery from "./gallery";
 import React from "react";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
-import Themes from "../components/Themes";
 import { Route } from "react-router-dom";
 
 const Pages = () => {
   return (
     <>
-      <Themes />
       <Header></Header>
       <Nav />
       <main>

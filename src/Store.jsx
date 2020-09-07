@@ -14,6 +14,6 @@ export const ThemeState = atom({
   key: "ThemeState",
   default: {
     index: localStorage.getItem("ThemeIndex") ? parseInt(localStorage.getItem("ThemeIndex")) : 0,
-    themes: ["default", "fun", "cold"],
+    themes: ["fun", "cold"],
   },
 });

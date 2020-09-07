@@ -67,9 +67,6 @@ const GlobalStyle = createGlobalStyle`
   }
   :root{
     --content: 1000px;
-  }
-
-  [data-theme="default"]{
     --primary: #ff2a70;
   }
 

@@ -7,15 +7,17 @@ import GlobalStyle from "./GlobalStyle";
 import Modal from "react-modal";
 import { faArrowLeft, faArrowRight, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import Themes from "./components/Themes";
 Modal.setAppElement("#root");
 library.add(faArrowLeft, faArrowRight, faBars, faTimes);
 
 const App = () => {
   return (
     <>
-      <GlobalStyle />
       <Router>
         <RecoilRoot>
+          <GlobalStyle />
+          <Themes />
           <Pages />
         </RecoilRoot>
       </Router>
