@@ -14,7 +14,7 @@ const Pages = () => {
       <main>
         <Route exact path="/" component={Index} />
         <Route exact path="/contact" component={Contact} />
-        <Route exact path="/gallery" component={Gallery} />
+        <Route path="/gallery" component={Gallery} />
       </main>
     </>
   );

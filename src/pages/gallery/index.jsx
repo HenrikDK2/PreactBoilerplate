@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
 import Fetch from "../../Fetch";
 import Img from "../../components/Image";
@@ -72,6 +72,10 @@ const Gallery = () => {
   const [gallery, setGallery] = useRecoilState(GalleryPhotosState);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    console.log(params.get("id"));
+    console.log(params.get("name"));
+
     (async () => {
       const data = await Fetch("photos").then((e) => e.splice(0, 6));
       setGallery({ ...gallery, data });

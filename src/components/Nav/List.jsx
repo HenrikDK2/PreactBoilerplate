@@ -15,7 +15,7 @@ const List = ({ style }) => {
       <ListItem siteName="About Us" url="/" />
       <ListItem siteName="Blog" url="/blog" />
       <ListItem siteName="Events" url="/" />
-      <ListItem siteName="Gallery" url="/gallery" />
+      <ListItem siteName="Gallery" url="/gallery?id=test&name=Henrik" />
       <ListItem siteName="Book" url="/book" />
       <ListItem siteName="Contact Us" url="/contact" />
     </UlList>
