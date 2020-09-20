@@ -84,8 +84,8 @@ const Gallery = () => {
   }, []);
   return (
     <>
-      <h1 css={HeadingStyle}>Gallery</h1>
       <GallerySection>
+        <h1 css={HeadingStyle}>Gallery</h1>
         <ContentGird>
           {gallery && gallery.data
             ? gallery.data.map((image, i) => {

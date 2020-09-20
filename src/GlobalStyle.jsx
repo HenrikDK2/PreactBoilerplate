@@ -54,6 +54,28 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  @keyframes ErrorSlideAnim{
+    0%{
+      transform:translateX(100px);
+      opacity:0;
+    }
+
+    20% {
+      transform:translateX(0);
+      opacity:1;
+    }
+
+    80%{
+      transform:translateX(0);
+      opacity:1;
+    }
+
+    100% {
+      transform:translateX(100px);
+      opacity:0;
+    }
+  }
+
 
   body {
     margin: 0;

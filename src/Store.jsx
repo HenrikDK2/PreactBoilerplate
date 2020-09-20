@@ -17,3 +17,10 @@ export const ThemeState = atom({
     themes: ["fun", "cold"],
   },
 });
+
+export const ErrorHandlerState = atom({
+  key: "ErrorHandlerState",
+  default: {
+    messages: [],
+  },
+});

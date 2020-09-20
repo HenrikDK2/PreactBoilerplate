@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 import styled, { css } from "styled-components";
 import List from "./List";
 import { useRecoilState } from "recoil";
@@ -67,7 +68,11 @@ const Navigation = () => {
         <List style={desktopCss} />
       </Nav>
 
-      <PhoneNavigation isOpen={isMenuOpen && true} onRequestClose={() => setIsMenuOpen(false)}>
+      <PhoneNavigation
+        closeTimeoutMS={500}
+        isOpen={isMenuOpen && true}
+        onRequestClose={() => setIsMenuOpen(false)}
+      >
         <ExitButton onClick={() => setIsMenuOpen(false)} icon={["fa", "times"]} />
         <List />
       </PhoneNavigation>
