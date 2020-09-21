@@ -10,6 +10,7 @@ const ErrorMsg = styled.span`
 
 const Label = styled.label`
   display: block;
+  z-index: 2;
 `;
 
 const FormInput = ({
@@ -19,6 +20,7 @@ const FormInput = ({
   textarea,
   name,
   placeholder,
+  className,
   disabled,
   register,
   errors,
@@ -31,7 +33,12 @@ const FormInput = ({
 
   if (textarea) {
     return (
-      <Label css={style} aria-label={aria ? aria : name + " Inputfield"} htmlFor={name}>
+      <Label
+        className={className}
+        css={style}
+        aria-label={aria ? aria : name + " Inputfield"}
+        htmlFor={name}
+      >
         <textarea
           name={name}
           css={enableBorder && error ? Border : null}
@@ -46,7 +53,12 @@ const FormInput = ({
   }
 
   return (
-    <Label css={style} aria-label={aria ? aria : name + " Inputfield"} htmlFor={name}>
+    <Label
+      className={className}
+      css={style}
+      aria-label={aria ? aria : name + " Inputfield"}
+      htmlFor={name}
+    >
       <input
         name={name}
         css={enableBorder && error ? Border : null}

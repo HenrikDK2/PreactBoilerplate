@@ -26,6 +26,7 @@ const List = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(250px, 325px));
   place-content: center;
   grid-gap: 1rem;
+  padding: 0;
   list-style: none;
   grid-auto-rows: 400px;
 `;
