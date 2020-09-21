@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import ListItem from "./ListItem";
 
 const UlList = styled.ul`
@@ -14,7 +14,7 @@ const List = ({ style }) => {
       <ListItem siteName="Book" url="/book" />
       <ListItem siteName="About Us" url="/" />
       <ListItem siteName="Blog" url="/blog" />
-      <ListItem siteName="Events" url="/" />
+      <ListItem siteName="Products" url="/products" />
       <ListItem siteName="Gallery" url="/gallery?id=test&name=Henrik" />
       <ListItem siteName="Book" url="/book" />
       <ListItem siteName="Contact Us" url="/contact" />

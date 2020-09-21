@@ -18,11 +18,9 @@ module.exports = {
       "react-dom": "preact/compat",
     },
   },
-  devServer: {
-    historyApiFallback: true,
-  },
+  devServer: { historyApiFallback: true },
   optimization: {
-    minimize: true,
+    minimize: "production" ? true : false,
     minimizer: [
       new TerserPlugin({
         terserOptions: {

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Figure = styled.figure`
+const Container = styled.div`
   user-select: none;
   width: 50px;
   height: 50px;
@@ -19,28 +19,29 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Image = ({ src, alt, style, href, to, title, altLink }) => {
+const Image = ({ src, alt, style, href, to, title, altLink, children }) => {
   if (to) {
     return (
       <Link css={style} to={to} title={title} alt={altLink}>
-        <Figure>
+        <Container>
           <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
-        </Figure>
+        </Container>
       </Link>
     );
   } else if (href) {
     return (
       <A css={style} href={href} title={title} alt={altLink}>
-        <Figure>
+        <Container>
           <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
-        </Figure>
+        </Container>
       </A>
     );
   } else {
     return (
-      <Figure css={style} title={title}>
+      <Container css={style} title={title}>
+        {children}
         <Img src={src} alt={alt ? alt : "Image"} onDragStart={(e) => e.preventDefault()} />
-      </Figure>
+      </Container>
     );
   }
 };

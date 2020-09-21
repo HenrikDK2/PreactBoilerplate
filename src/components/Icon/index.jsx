@@ -6,7 +6,7 @@ const A = styled.a`
   text-decoration: none;
 `;
 
-const Icon = ({ icon, style, href, to, title, alt, onTouchStart, onClick }) => {
+const Icon = ({ icon, style, href, to, title, alt, onTouchStart, onClick, className }) => {
   if (href) {
     return (
       <A
@@ -14,6 +14,7 @@ const Icon = ({ icon, style, href, to, title, alt, onTouchStart, onClick }) => {
         onTouchStart={onTouchStart}
         href={href}
         title={title}
+        className={className}
         alt={alt}
         css={style}
       >
@@ -22,13 +23,22 @@ const Icon = ({ icon, style, href, to, title, alt, onTouchStart, onClick }) => {
     );
   } else if (to) {
     return (
-      <A onClick={onClick} onTouchStart={onTouchStart} to={to} title={title} alt={alt} css={style}>
+      <A
+        className={className}
+        onClick={onClick}
+        onTouchStart={onTouchStart}
+        to={to}
+        title={title}
+        alt={alt}
+        css={style}
+      >
         <FontAwesomeIcon icon={icon} />
       </A>
     );
   } else {
     return (
       <FontAwesomeIcon
+        className={className}
         onClick={onClick}
         onTouchStart={onTouchStart}
         title={title}

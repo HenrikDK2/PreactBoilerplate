@@ -1,18 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const Input = styled.input`
-  width: 100%;
-  padding: 0 1rem;
-  box-sizing: Border-box;
-  font-size: 1rem;
-  font-weight: 500;
-  height: 40px;
-  margin: 0;
-  background: transparent;
-  border: 1px solid #343434;
-`;
-
 const ErrorMsg = styled.span`
   width: max-content;
   display: block;
@@ -24,17 +12,44 @@ const Label = styled.label`
   display: block;
 `;
 
-const FormInput = ({ style, aria, type, name, placeholder, disabled, register, errors }) => {
+const FormInput = ({
+  style,
+  aria,
+  type,
+  textarea,
+  name,
+  placeholder,
+  disabled,
+  register,
+  errors,
+  enableBorder = true,
+}) => {
   const error = errors[name] && errors[name];
   const Border = css`
-    border: 1px solid ${error ? "red" : "null"};
+    border: 1px solid red !important;
   `;
+
+  if (textarea) {
+    return (
+      <Label css={style} aria-label={aria ? aria : name + " Inputfield"} htmlFor={name}>
+        <textarea
+          name={name}
+          css={enableBorder && error ? Border : null}
+          placeholder={placeholder && placeholder}
+          type={type ? type : "text"}
+          disabled={disabled}
+          ref={register}
+        />
+        {<ErrorMsg>{error && error.message}</ErrorMsg>}
+      </Label>
+    );
+  }
 
   return (
     <Label css={style} aria-label={aria ? aria : name + " Inputfield"} htmlFor={name}>
-      <Input
+      <input
         name={name}
-        css={Border}
+        css={enableBorder && error ? Border : null}
         placeholder={placeholder && placeholder}
         type={type ? type : "text"}
         disabled={disabled}

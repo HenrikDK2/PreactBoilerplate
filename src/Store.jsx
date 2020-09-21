@@ -4,6 +4,10 @@ export const IsMenuOpenState = atom({
   key: "IsMenuOpenState",
   default: false,
 });
+export const ProductFormModal = atom({
+  key: "ProductFormModalState",
+  default: true,
+});
 
 export const GalleryPhotosState = atom({
   key: "GalleryPhotosState",

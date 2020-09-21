@@ -21,24 +21,23 @@ const ContentGird = styled.ul`
   place-content: center;
 
   & li:nth-of-type(1) {
-    animation: SlideInX 0.5s;
+    animation: SlideInX 0.5s 0.4s forwards;
   }
 
   & li:nth-of-type(2) {
-    animation: SlideInX 0.6s;
+    animation: SlideInX 0.6s 0.4s forwards;
   }
   & li:nth-of-type(3) {
-    animation: SlideInX 0.7s;
+    animation: SlideInX 0.7s 0.4s forwards;
   }
   & li:nth-of-type(4) {
-    animation: SlideInX 0.8s;
+    animation: SlideInX 0.8s 0.4s forwards;
   }
   & li:nth-of-type(5) {
-    animation: SlideInX 0.9s;
+    animation: SlideInX 0.9s 0.4s forwards;
   }
 
   @media (min-width: 500px) {
-    display: grid;
     grid-gap: 10px;
     grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -61,8 +60,10 @@ const ContentGird = styled.ul`
 `;
 
 const GridItem = styled.li`
+  transform: translateX(-500px);
+  opacity: 0;
   cursor: pointer;
-  & > figure {
+  & > div {
     width: initial;
     height: initial;
   }
@@ -79,13 +80,12 @@ const Gallery = () => {
     (async () => {
       const data = await Fetch("photos").then((e) => e.splice(0, 6));
       setGallery({ ...gallery, data });
-      console.log(data);
     })();
   }, []);
   return (
     <>
+      <h1 css={HeadingStyle}>Gallery</h1>
       <GallerySection>
-        <h1 css={HeadingStyle}>Gallery</h1>
         <ContentGird>
           {gallery && gallery.data
             ? gallery.data.map((image, i) => {

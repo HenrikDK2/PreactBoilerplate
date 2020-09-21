@@ -76,17 +76,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-
-  body {
-    margin: 0;
-    padding: 0;
-    color: var(--primary);
-
-  }
-
-  .ReactModal__Overlay {
-    z-index:999;
-  }
   :root{
     --content: 1000px;
     --primary: #ff2a70;
@@ -98,6 +87,36 @@ const GlobalStyle = createGlobalStyle`
 
   [data-theme="cold"]{
     --primary: #0000ff;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    color: var(--primary);
+  }
+  .center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ReactModal__Body--open{
+    overflow:hidden;
+  }
+
+  .ReactModal__Overlay {
+    z-index:999;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
   }
 `;
 

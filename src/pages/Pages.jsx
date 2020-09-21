@@ -1,13 +1,14 @@
+import React from "react";
+import styled from "styled-components";
+import { Route } from "react-router-dom";
+import { ErrorHandlerState } from "../Store";
+import { useRecoilState } from "recoil";
 import Index from "./index";
 import Contact from "./contact";
 import Gallery from "./gallery";
-import React, { useEffect } from "react";
+import Products from "./products";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
-import { Route } from "react-router-dom";
-import styled from "styled-components";
-import { ErrorHandlerState } from "../Store";
-import { useRecoilState } from "recoil";
 
 const ErrorContainer = styled.div`
   position: fixed;
@@ -33,8 +34,9 @@ const Pages = () => {
         <Route exact path="/" component={Index} />
         <Route exact path="/contact" component={Contact} />
         <Route path="/gallery" component={Gallery} />
+        <Route path="/products" component={Products} />
       </main>
-      <button
+      {/*       <button
         onClick={(e) =>
           setErrorHandler({ ...errorHandler, messages: [...errorHandler.messages, "test"] })
         }
@@ -56,7 +58,7 @@ const Pages = () => {
             {errorHandler.messages[0]}
           </p>
         )}
-      </ErrorContainer>
+      </ErrorContainer> */}
     </>
   );
 };

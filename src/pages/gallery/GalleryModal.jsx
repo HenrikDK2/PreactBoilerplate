@@ -11,7 +11,7 @@ const ModalContainer = styled(Modal)``;
 const Slide = styled.article`
   width: 100%;
   height: 500px;
-  & > figure {
+  & > div {
     width: 100%;
     height: 100%;
     & > img {
@@ -46,7 +46,7 @@ const GalleryModal = () => {
   if (!gallery.data) return null;
 
   return (
-    <ModalContainer isOpen={gallery.isOpen}>
+    <ModalContainer isOpen={gallery.isOpen} closeTimeoutMS={500}>
       <Carousel flickityRef={(e) => setCarouselRef(e)} options={{ initialIndex: gallery.index }}>
         {gallery.data.map((data, i) => {
           return (
