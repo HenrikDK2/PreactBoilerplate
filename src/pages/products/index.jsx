@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import Fetch from "../../Fetch";
 import Image from "../../components/Image";
 import Icon from "../../components/Icon";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { ProductFormModal } from "../../Store";
 import ProductForm from "./ProductForm";
 const Section = styled.section`
@@ -53,7 +53,7 @@ const plusIcon = css`
 const Products = () => {
   const [products, setProducts] = useState();
   const [admin, setAdmin] = useState(true);
-  const [showModal, setShowModal] = useRecoilState(ProductFormModal);
+  const setShowModal = useSetRecoilState(ProductFormModal);
   useEffect(() => {
     (async () => {
       const data = await Fetch("posts");
