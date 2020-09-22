@@ -57,6 +57,8 @@ const ImageForm = ({ imageRef }) => {
   const [show, setShow] = useState(false);
   const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
+    const imageDom = imageRef.current.base.querySelector("img");
+    imageDom.oldSrc = imageDom.src;
     console.log(data);
     setShow(false);
   };
@@ -93,7 +95,7 @@ const ImageForm = ({ imageRef }) => {
       <Cancel
         onClick={() => {
           const imageDom = imageRef.current.base.querySelector("img");
-          imageDom.src = imageDom.oldSrc;
+          imageDom.src = imageDom.oldSrc || "/placeholder-image.jpg";
           setShow(false);
         }}
       >

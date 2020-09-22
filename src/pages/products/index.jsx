@@ -7,6 +7,7 @@ import { useSetRecoilState } from "recoil";
 import { ProductFormModal } from "../../Store";
 import ProductForm from "./ProductForm";
 import { Link } from "react-router-dom";
+import Loader from "../../components/Loader";
 const Section = styled.section`
   h1 {
     font-size: 3rem;
@@ -69,7 +70,7 @@ const Products = () => {
     <Section>
       <h1>Alle produkter</h1>
       <List>
-        {products &&
+        {products ? (
           products.map((data) => {
             return (
               <Product>
@@ -80,8 +81,12 @@ const Products = () => {
                 <ItemLink to={`/products/${data.id}`}>Read more</ItemLink>
               </Product>
             );
-          })}
-        {admin && (
+          })
+        ) : (
+          <Loader />
+        )}
+
+        {admin && products && (
           <>
             <AddProduct onClick={() => setShowModal(true)}>
               <Icon icon="plus-square" style={plusIcon} className={"center"} />

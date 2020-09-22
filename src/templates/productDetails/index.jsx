@@ -4,11 +4,19 @@ import { useParams } from "react-router-dom";
 import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import ImageForm from "./ImageForm";
+import Loader from "../../components/Loader";
+import Icon from "../../components/Icon";
 
 const Section = styled.section`
   max-width: 1000px;
   padding: 2rem 0;
   margin: 0 auto;
+  h1,
+  p {
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+  }
 `;
 
 const imageStyle = css`
@@ -22,6 +30,7 @@ const imageStyle = css`
     top: 0;
     object-fit: Cover;
   }
+
   &:hover {
     button {
       opacity: 1;
@@ -33,10 +42,23 @@ const imageStyle = css`
   }
 `;
 
+const EditButton = styled(Icon)`
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  top: -0.5rem;
+  right: -1rem;
+`;
+
 const Container = styled.div`
   position: relative;
+  margin: 1rem 0;
+  display: inline-block;
 `;
-let oldSrc;
+
+const EditButtonP = styled(EditButton)`
+  right: 0.5rem;
+`;
 
 const productDetails = () => {
   const imageRef = useRef(null);
@@ -49,17 +71,21 @@ const productDetails = () => {
     })();
   }, []);
 
-  if (!product) return;
+  if (!product) return <Loader />;
 
   return (
     <Section>
       <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
-        <ImageForm imageRef={imageRef} oldSrc={oldSrc} />
+        <ImageForm imageRef={imageRef} />
       </Image>
       <Container>
         <h1>{product.title}</h1>
+        <EditButton icon="pencil-alt" />
       </Container>
-      <p>{product.body}</p>
+      <Container>
+        <p>{product.body}</p>
+        <EditButtonP icon="pencil-alt" />
+      </Container>
     </Section>
   );
 };
