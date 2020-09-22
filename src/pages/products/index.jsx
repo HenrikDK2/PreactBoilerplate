@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import Fetch from "../../Fetch";
+import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import Icon from "../../components/Icon";
 import { useSetRecoilState } from "recoil";
 import { ProductFormModal } from "../../Store";
 import ProductForm from "./ProductForm";
+import { Link } from "react-router-dom";
 const Section = styled.section`
   h1 {
     font-size: 3rem;
@@ -17,7 +18,8 @@ const Product = styled.li`
   h4 {
     text-align: center;
   }
-  p {
+  p,
+  a {
     padding: 0 1rem;
   }
 `;
@@ -36,6 +38,8 @@ const AddProduct = styled.li`
   position: relative;
   cursor: pointer;
 `;
+
+const ItemLink = styled(Link)``;
 
 const productImage = css`
   width: 100%;
@@ -56,7 +60,7 @@ const Products = () => {
   const setShowModal = useSetRecoilState(ProductFormModal);
   useEffect(() => {
     (async () => {
-      const data = await Fetch("posts");
+      const data = await myFetch("posts");
       setProducts(data.splice(0, 4));
     })();
   }, []);
@@ -73,6 +77,7 @@ const Products = () => {
 
                 <h4>{data.title}</h4>
                 <p>{data.body}</p>
+                <ItemLink to={`/products/${data.id}`}>Read more</ItemLink>
               </Product>
             );
           })}

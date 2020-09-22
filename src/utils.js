@@ -1,4 +1,4 @@
-async function getToken() {
+export async function getToken() {
   const data = await fetch(process.env.API_ENDPOINT + "token", {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -13,7 +13,7 @@ async function getToken() {
   sessionStorage.setItem("accessToken", data["access_token"]);
 }
 
-function isTokenExpired() {
+export function isTokenExpired() {
   const expiresIn = sessionStorage.getItem("expiresIn");
 
   //Hvis den nuværende tid i ms er støre end expireIn - 2000 i ms.
@@ -24,7 +24,7 @@ function isTokenExpired() {
   }
 }
 
-async function myFetch(ressource, options, admin = false) {
+export async function myFetch(ressource, options, admin = false) {
   if (admin) {
     if (!sessionStorage.getItem("accessToken") || isTokenExpired()) await getToken();
 
@@ -44,5 +44,21 @@ async function myFetch(ressource, options, admin = false) {
     }).then((res) => res.json());
   }
 }
+let oldSrc;
+export function fileValidation({ image, imageRef }) {
+  const validArr = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
+  const imageDom = imageRef.current.base.querySelector("img");
 
-export default myFetch;
+  if (!oldSrc) oldSrc = imageDom.src;
+  if (image.type.length < 1 || !validArr.includes(image.type)) {
+    imageDom.setAttribute("src", oldSrc);
+    return "Not a supported file format";
+  }
+
+  const reader = new FileReader();
+  reader.onload = function () {
+    const src = reader.result;
+    imageDom.setAttribute("src", src);
+  };
+  reader.readAsDataURL(image);
+}

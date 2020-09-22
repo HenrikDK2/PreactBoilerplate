@@ -70,7 +70,7 @@ const Navigation = () => {
 
       <PhoneNavigation
         closeTimeoutMS={500}
-        isOpen={isMenuOpen && true}
+        isOpen={isMenuOpen}
         onRequestClose={() => setIsMenuOpen(false)}
       >
         <ExitButton onClick={() => setIsMenuOpen(false)} icon={["fa", "times"]} />

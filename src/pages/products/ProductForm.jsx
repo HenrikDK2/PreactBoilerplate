@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import styled, { css } from "styled-components";
-import Fetch from "../../Fetch";
+import { fileValidation } from "../../utils";
 import Image from "../../components/Image";
 import Modal from "react-modal";
 import { useRecoilState } from "recoil";
@@ -87,9 +87,9 @@ const previewImage = css`
 `;
 
 const Products = () => {
-  const previewImageRef = useRef(null);
+  const imageRef = useRef(null);
   const [showModal, setShowModal] = useRecoilState(ProductFormModal);
-  const { register, handleSubmit, setError, errors } = useForm({ mode: "onChange" });
+  const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -100,7 +100,7 @@ const Products = () => {
         <Image
           style={previewImage}
           src="/placeholder-image.jpg"
-          ref={previewImageRef}
+          ref={imageRef}
           alt="Preview Image"
         />
         <Input
@@ -110,26 +110,7 @@ const Products = () => {
           register={register({
             required: "Image file is required",
             validate: {
-              fileType: (value) => {
-                const validArr = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
-                const image = value[0];
-
-                if (image.type.length < 1 || !validArr.includes(image.type)) {
-                  previewImageRef.current.base.children[0].setAttribute(
-                    "src",
-                    "/placeholder-image.jpg"
-                  );
-
-                  return "Not a supported file format";
-                }
-
-                const reader = new FileReader();
-                reader.onload = function () {
-                  const src = reader.result;
-                  previewImageRef.current.base.children[0].setAttribute("src", src);
-                };
-                reader.readAsDataURL(image);
-              },
+              fileType: (value) => fileValidation({ image: value[0], imageRef }),
             },
           })}
           errors={errors}
@@ -159,10 +140,10 @@ const Products = () => {
           textarea={true}
           register={register({
             required: "This field is required",
-            /*             minLength: {
+            minLength: {
               value: 400,
               message: `Content needs to be at least 400 characters`,
-            }, */
+            },
           })}
           errors={errors}
         />

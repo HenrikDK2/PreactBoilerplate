@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
+import Input from "../../components/FormInput";
+import { fileValidation } from "../../utils";
 
 const Form = styled.form`
   z-index: 1;
@@ -16,14 +18,6 @@ const Form = styled.form`
   }
 `;
 
-const ErrorMsg = styled.span`
-  width: max-content;
-  display: block;
-  margin-top: 0.5rem;
-  min-height: 25px;
-  color: #ff0018; ;
-`;
-const Input = styled.input``;
 const Button = styled.button`
   transition: 0.5s opacity;
   opacity: 0;
@@ -59,12 +53,11 @@ const Submit = styled(Cancel)`
   right: 1rem;
 `;
 
-const ImageForm = () => {
+const ImageForm = ({ imageRef }) => {
   const [show, setShow] = useState(false);
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
-    const imageFile = data.image[0];
-    console.log(imageFile);
+    console.log(data);
     setShow(false);
   };
 
@@ -79,21 +72,32 @@ const ImageForm = () => {
         Edit Image
       </Button>
     );
-  console.log(errors);
+
   return (
     <>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           name="image"
           type="file"
-          ref={register({
-            required: "This field is required",
+          enableBorder={false}
+          register={register({
+            required: "Image file is required",
+            validate: {
+              fileType: (value) => fileValidation({ image: value[0], imageRef }),
+            },
           })}
+          errors={errors}
         />
-        {<ErrorMsg>{errors && errors.image && errors.image.message}</ErrorMsg>}
         <Submit>Submit</Submit>
       </Form>
-      <Cancel onClick={() => setShow(false)}>Cancel</Cancel>
+      <Cancel
+        onClick={() => {
+          imageRef.current.base.querySelector("img").src = oldSrc;
+          setShow(false);
+        }}
+      >
+        Cancel
+      </Cancel>
     </>
   );
 };

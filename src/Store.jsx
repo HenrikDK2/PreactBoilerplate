@@ -6,7 +6,7 @@ export const IsMenuOpenState = atom({
 });
 export const ProductFormModal = atom({
   key: "ProductFormModalState",
-  default: true,
+  default: false,
 });
 
 export const GalleryPhotosState = atom({

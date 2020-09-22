@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled, { css } from "styled-components";
-import Fetch from "../../Fetch";
+import { myFetch } from "../../utils";
 import Img from "../../components/Image";
 import { GalleryPhotosState } from "../../Store";
 import { useRecoilState } from "recoil";
@@ -78,7 +78,7 @@ const Gallery = () => {
     console.log(params.get("name"));
 
     (async () => {
-      const data = await Fetch("photos").then((e) => e.splice(0, 6));
+      const data = await myFetch("photos").then((e) => e.splice(0, 6));
       setGallery({ ...gallery, data });
     })();
   }, []);

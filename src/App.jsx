@@ -11,11 +11,12 @@ import {
   faBars,
   faTimes,
   faPlusSquare,
+  faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Themes from "./components/Themes";
 Modal.setAppElement("#root");
-library.add(faArrowLeft, faArrowRight, faBars, faTimes, faPlusSquare);
+library.add(faArrowLeft, faArrowRight, faBars, faTimes, faPlusSquare, faPencilAlt);
 
 const App = () => {
   return (
