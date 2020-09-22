@@ -69,7 +69,7 @@ const Products = () => {
           products.map((data) => {
             return (
               <Product>
-                <Image style={productImage} src="https://via.placeholder.com/350x150" />
+                <Image style={productImage} src="/placeholder-image.jpg" />
 
                 <h4>{data.title}</h4>
                 <p>{data.body}</p>

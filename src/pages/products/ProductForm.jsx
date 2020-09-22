@@ -7,7 +7,6 @@ import { useRecoilState } from "recoil";
 import { ProductFormModal } from "../../Store";
 import { useForm } from "react-hook-form";
 import Input from "../../components/FormInput";
-import placeholderSrc from "../../images/placeholder-image.png";
 
 const FormModal = styled(Modal)`
   width: 100%;
@@ -16,7 +15,6 @@ const FormModal = styled(Modal)`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow-y: auto;
   max-height: 100vh;
 `;
 
@@ -25,7 +23,7 @@ const Form = styled.form`
   width: 100%;
   padding: 2rem 1rem;
   box-sizing: border-box;
-
+  overflow-y: auto;
   [name="image"] {
     cursor: pointer;
   }
@@ -46,6 +44,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  padding-bottom: 1rem;
 `;
 
 const formInputStyle = css`
@@ -100,7 +99,7 @@ const Products = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Image
           style={previewImage}
-          src={placeholderSrc}
+          src="/placeholder-image.jpg"
           ref={previewImageRef}
           alt="Preview Image"
         />
@@ -109,13 +108,18 @@ const Products = () => {
           type="file"
           enableBorder={false}
           register={register({
-            required: "This field is required",
+            required: "Image file is required",
             validate: {
               fileType: (value) => {
                 const validArr = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
                 const image = value[0];
 
                 if (image.type.length < 1 || !validArr.includes(image.type)) {
+                  previewImageRef.current.base.children[0].setAttribute(
+                    "src",
+                    "/placeholder-image.jpg"
+                  );
+
                   return "Not a supported file format";
                 }
 
