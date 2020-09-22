@@ -80,14 +80,20 @@ const productDetails = () => {
       </Image>
       <Container>
         <h1>{product.title}</h1>
-        <EditButton icon="pencil-alt" />
+        <EditButton onClick={(e) => editText(e)} icon="pencil-alt" />
       </Container>
       <Container>
         <p>{product.body}</p>
-        <EditButtonP icon="pencil-alt" />
+        <EditButtonP onClick={(e) => editText(e)} icon="pencil-alt" />
       </Container>
     </Section>
   );
 };
+
+function editText(e) {
+  const dom = e.currentTarget.previousSibling;
+  let text = dom.textContent;
+  console.log(text);
+}
 
 export default productDetails;
