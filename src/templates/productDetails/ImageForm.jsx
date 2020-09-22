@@ -92,7 +92,8 @@ const ImageForm = ({ imageRef }) => {
       </Form>
       <Cancel
         onClick={() => {
-          imageRef.current.base.querySelector("img").src = oldSrc;
+          const imageDom = imageRef.current.base.querySelector("img");
+          imageDom.src = imageDom.oldSrc;
           setShow(false);
         }}
       >

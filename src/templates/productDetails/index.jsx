@@ -20,6 +20,7 @@ const imageStyle = css`
     position: absolute;
     left: 0;
     top: 0;
+    object-fit: Cover;
   }
   &:hover {
     button {
@@ -35,6 +36,7 @@ const imageStyle = css`
 const Container = styled.div`
   position: relative;
 `;
+let oldSrc;
 
 const productDetails = () => {
   const imageRef = useRef(null);
@@ -52,7 +54,7 @@ const productDetails = () => {
   return (
     <Section>
       <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
-        <ImageForm imageRef={imageRef} />
+        <ImageForm imageRef={imageRef} oldSrc={oldSrc} />
       </Image>
       <Container>
         <h1>{product.title}</h1>

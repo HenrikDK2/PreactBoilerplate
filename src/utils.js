@@ -44,14 +44,13 @@ export async function myFetch(ressource, options, admin = false) {
     }).then((res) => res.json());
   }
 }
-let oldSrc;
 export function fileValidation({ image, imageRef }) {
   const validArr = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
   const imageDom = imageRef.current.base.querySelector("img");
 
-  if (!oldSrc) oldSrc = imageDom.src;
+  if (!imageDom.oldSrc) imageDom.oldSrc = imageDom.src;
   if (image.type.length < 1 || !validArr.includes(image.type)) {
-    imageDom.setAttribute("src", oldSrc);
+    imageDom.setAttribute("src", imageDom.oldSrc);
     return "Not a supported file format";
   }
 
