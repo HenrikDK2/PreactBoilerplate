@@ -25,6 +25,10 @@ const Form = styled.form`
   textarea {
     width: 100%;
   }
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+  }
 `;
 
 const Cancel = styled.button`
@@ -62,14 +66,6 @@ const FormContainer = styled(Container)`
 const AdminText = ({ content, tag }) => {
   const textRef = useRef();
   const [formData, setFormData] = useState({ showForm: false, content });
-  const showForm = () => {
-    setFormData({
-      showForm: true,
-      content: textRef.current.innerText,
-      oldContent: textRef.current.innerText,
-      fontSize: window.getComputedStyle(textRef.current).fontSize,
-    });
-  };
   const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const CustomTag = `${tag}`;
   const onSubmit = (data) => {
@@ -80,20 +76,25 @@ const AdminText = ({ content, tag }) => {
     return (
       <Container>
         <CustomTag ref={textRef}>{formData.content}</CustomTag>
-        <EditButton onClick={() => showForm()} icon="pencil-alt" />
+        <EditButton onClick={() => showForm(textRef, setFormData)} icon="pencil-alt" />
       </Container>
     );
   }
+
+  const customStyle = css`
+    input {
+      font-size: ${formData.fontSize};
+    }
+    textarea {
+      height: ${formData.height};
+    }
+  `;
 
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          style={css`
-            input {
-              font-size: ${formData.fontSize};
-            }
-          `}
+          style={customStyle}
           name="content"
           onChange={(e) => setFormData({ ...formData, content: e.currentTarget.value })}
           textarea={tag === "p"}
@@ -105,15 +106,21 @@ const AdminText = ({ content, tag }) => {
         />
         <Submit>Submit</Submit>
       </Form>
-      <Cancel
-        onClick={() => {
-          setFormData({ showForm: false, content: formData.oldContent });
-        }}
-      >
+      <Cancel onClick={() => setFormData({ showForm: false, content: formData.oldContent })}>
         Cancel
       </Cancel>
     </FormContainer>
   );
+};
+
+const showForm = (textRef, setFormData) => {
+  setFormData({
+    showForm: true,
+    content: textRef.current.innerText,
+    oldContent: textRef.current.innerText,
+    fontSize: window.getComputedStyle(textRef.current).fontSize,
+    height: window.getComputedStyle(textRef.current).height,
+  });
 };
 
 export default AdminText;
