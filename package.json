@@ -29,7 +29,7 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "dotenv-webpack": "^2.0.0",
     "flickity": "^2.2.1",
-    "preact": "^10.4.8",
+    "preact": "^10.4.7",
     "preact-compat": "^3.19.0",
     "react-flickity-component": "^3.5.0",
     "react-hook-form": "^6.8.3",
