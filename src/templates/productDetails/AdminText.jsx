@@ -4,7 +4,6 @@ import Icon from "../../components/Icon";
 import { useForm } from "react-hook-form";
 import Input from "../../components/FormInput";
 
-let textContent;
 const EditButton = styled(Icon)`
   color: #000;
   cursor: pointer;
@@ -67,17 +66,15 @@ const AdminText = ({ content, tag }) => {
     setFormData({
       showForm: true,
       content: textRef.current.innerText,
+      oldContent: textRef.current.innerText,
       fontSize: window.getComputedStyle(textRef.current).fontSize,
     });
   };
   const { register, handleSubmit, errors } = useForm({ mode: "onChange", shouldUnregister: false });
   const CustomTag = `${tag}`;
   const onSubmit = (data) => {
-    textContent = data.content;
     setFormData({ showForm: false, content: data.content });
   };
-
-  if (!textContent) textContent = content;
 
   if (!formData.showForm) {
     return (
@@ -110,7 +107,7 @@ const AdminText = ({ content, tag }) => {
       </Form>
       <Cancel
         onClick={() => {
-          setFormData({ showForm: false, content: textContent });
+          setFormData({ ...formData, showForm: false });
         }}
       >
         Cancel
