@@ -9,6 +9,8 @@ import AdminText from "./AdminText";
 import { useRecoilValue } from "recoil";
 import { AdminModeState } from "../../Store";
 
+let textContent;
+
 const Article = styled.article`
   max-width: 1000px;
   padding: 2rem;
