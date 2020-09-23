@@ -107,7 +107,7 @@ const AdminText = ({ content, tag }) => {
       </Form>
       <Cancel
         onClick={() => {
-          setFormData({ showForm: false, content });
+          setFormData({ ...formData, showForm: false });
         }}
       >
         Cancel
