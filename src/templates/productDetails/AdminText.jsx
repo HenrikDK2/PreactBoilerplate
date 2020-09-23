@@ -70,7 +70,7 @@ const AdminText = ({ content, tag }) => {
       fontSize: window.getComputedStyle(textRef.current).fontSize,
     });
   };
-  const { register, handleSubmit, errors } = useForm({ mode: "onChange", shouldUnregister: false });
+  const { register, handleSubmit, errors } = useForm({ mode: "onChange" });
   const CustomTag = `${tag}`;
   const onSubmit = (data) => {
     setFormData({ showForm: false, content: data.content });
