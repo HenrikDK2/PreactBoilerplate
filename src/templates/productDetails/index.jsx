@@ -5,11 +5,11 @@ import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import ImageForm from "./ImageForm";
 import Loader from "../../components/Loader";
-import Icon from "../../components/Icon";
+import AdminText from "./AdminText";
 
 const Section = styled.section`
   max-width: 1000px;
-  padding: 2rem 0;
+  padding: 2rem;
   margin: 0 auto;
   h1,
   p {
@@ -42,24 +42,6 @@ const imageStyle = css`
   }
 `;
 
-const EditButton = styled(Icon)`
-  color: #000;
-  cursor: pointer;
-  position: absolute;
-  top: -0.5rem;
-  right: -1rem;
-`;
-
-const Container = styled.div`
-  position: relative;
-  margin: 1rem 0;
-  display: inline-block;
-`;
-
-const EditButtonP = styled(EditButton)`
-  right: 0.5rem;
-`;
-
 const productDetails = () => {
   const imageRef = useRef(null);
   const { id } = useParams();
@@ -78,22 +60,10 @@ const productDetails = () => {
       <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
         <ImageForm imageRef={imageRef} />
       </Image>
-      <Container>
-        <h1>{product.title}</h1>
-        <EditButton onClick={(e) => editText(e)} icon="pencil-alt" />
-      </Container>
-      <Container>
-        <p>{product.body}</p>
-        <EditButtonP onClick={(e) => editText(e)} icon="pencil-alt" />
-      </Container>
+      <AdminText content={product.title} tag="h1" />
+      <AdminText content={product.body} tag="p" />
     </Section>
   );
 };
-
-function editText(e) {
-  const dom = e.currentTarget.previousSibling;
-  let text = dom.textContent;
-  console.log(text);
-}
 
 export default productDetails;

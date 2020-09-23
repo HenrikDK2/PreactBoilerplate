@@ -17,9 +17,13 @@ const Section = styled.section`
 const Product = styled.li`
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
   h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     text-align: center;
   }
   p,
+  h4,
   a {
     padding: 0 1rem;
   }
@@ -75,9 +79,8 @@ const Products = () => {
             return (
               <Product>
                 <Image style={productImage} src="/placeholder-image.jpg" />
-
                 <h4>{data.title}</h4>
-                <p>{data.body}</p>
+                <p>{data.body.substring(0, 90)}</p>
                 <ItemLink to={`/products/${data.id}`}>Read more</ItemLink>
               </Product>
             );

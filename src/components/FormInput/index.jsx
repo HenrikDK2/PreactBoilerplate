@@ -22,6 +22,8 @@ const FormInput = ({
   placeholder,
   className,
   disabled,
+  onChange,
+  value,
   register,
   errors,
   enableBorder = true,
@@ -41,11 +43,13 @@ const FormInput = ({
       >
         <textarea
           name={name}
+          onChange={onChange}
           css={enableBorder && error ? Border : null}
           placeholder={placeholder && placeholder}
           type={type ? type : "text"}
           disabled={disabled}
           ref={register}
+          value={value}
         />
         {<ErrorMsg>{error && error.message}</ErrorMsg>}
       </Label>
@@ -61,11 +65,13 @@ const FormInput = ({
     >
       <input
         name={name}
+        onChange={onChange}
         css={enableBorder && error ? Border : null}
         placeholder={placeholder && placeholder}
         type={type ? type : "text"}
         disabled={disabled}
         ref={register}
+        value={value}
       />
       {<ErrorMsg>{error && error.message}</ErrorMsg>}
     </Label>

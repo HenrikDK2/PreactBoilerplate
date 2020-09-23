@@ -93,7 +93,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     color: var(--primary);
+    font-family: "roboto";
   }
+
+  input, textarea {
+    font-family: "roboto";
+
+  }
+
   .center{
     position: absolute;
     left: 50%;
