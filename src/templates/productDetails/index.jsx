@@ -9,7 +9,7 @@ import AdminText from "./AdminText";
 import { useRecoilValue } from "recoil";
 import { AdminModeState } from "../../Store";
 
-const Section = styled.section`
+const Article = styled.article`
   max-width: 1000px;
   padding: 2rem;
   margin: 0 auto;
@@ -26,7 +26,9 @@ const imageStyle = css`
     top: 0;
     object-fit: Cover;
   }
+`;
 
+const imageStyleAdmin = css`
   &:hover {
     button {
       opacity: 1;
@@ -53,8 +55,13 @@ const productDetails = () => {
   if (!product) return <Loader />;
 
   return (
-    <Section>
-      <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
+    <Article>
+      <Image
+        ref={imageRef}
+        style={[imageStyle, admin && imageStyleAdmin]}
+        src="/placeholder-image.jpg"
+        alt="placeholder"
+      >
         {admin && <ImageForm imageRef={imageRef} />}
       </Image>
       {admin ? (
@@ -68,7 +75,7 @@ const productDetails = () => {
           <p>{product.body}</p>
         </>
       )}
-    </Section>
+    </Article>
   );
 };
 
