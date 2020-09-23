@@ -72,8 +72,8 @@ const AdminText = ({ content, tag }) => {
   const { register, handleSubmit, errors } = useForm({ mode: "onChange", shouldUnregister: false });
   const CustomTag = `${tag}`;
   const onSubmit = (data) => {
-    console.log(data);
-    setFormData({ showForm: false, content: data.content });
+    content = data.content;
+    setFormData({ showForm: false, content });
   };
 
   if (!formData.showForm) {
@@ -107,7 +107,7 @@ const AdminText = ({ content, tag }) => {
       </Form>
       <Cancel
         onClick={() => {
-          setFormData({ ...formData, showForm: false });
+          setFormData({ showForm: false, content });
         }}
       >
         Cancel
