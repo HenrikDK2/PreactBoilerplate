@@ -101,6 +101,22 @@ const AdminText = ({ content, tag }) => {
           value={formData.content}
           register={register({
             required: "This field can't be empty",
+            minLength: {
+              value: tag !== "p" ? 10 : 400,
+              message: `${
+                tag !== "p"
+                  ? "Title needs to be at least 10 characters"
+                  : "Content needs to be at least 400 characters"
+              }`,
+            },
+            validate: {
+              pattern: (value) => {
+                const regex = /^[a-å A-Å_ ]*$/;
+                if (tag !== "p" && !regex.test(value)) {
+                  return "Title can only contain words and spaces";
+                }
+              },
+            },
           })}
           errors={errors}
         />
