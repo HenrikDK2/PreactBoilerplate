@@ -4,6 +4,12 @@ export const IsMenuOpenState = atom({
   key: "IsMenuOpenState",
   default: false,
 });
+
+export const AdminModeState = atom({
+  key: "AdminModeState",
+  default: sessionStorage.getItem("accessToken") ? true : false,
+});
+
 export const ProductFormModal = atom({
   key: "ProductFormModalState",
   default: false,

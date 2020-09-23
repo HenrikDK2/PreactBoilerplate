@@ -6,17 +6,13 @@ import Image from "../../components/Image";
 import ImageForm from "./ImageForm";
 import Loader from "../../components/Loader";
 import AdminText from "./AdminText";
+import { useRecoilValue } from "recoil";
+import { AdminModeState } from "../../Store";
 
 const Section = styled.section`
   max-width: 1000px;
   padding: 2rem;
   margin: 0 auto;
-  h1,
-  p {
-    display: inline-block;
-    box-sizing: border-box;
-    margin: 0;
-  }
 `;
 
 const imageStyle = css`
@@ -44,6 +40,7 @@ const imageStyle = css`
 
 const productDetails = () => {
   const imageRef = useRef(null);
+  const admin = useRecoilValue(AdminModeState);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
@@ -60,8 +57,17 @@ const productDetails = () => {
       <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
         <ImageForm imageRef={imageRef} />
       </Image>
-      <AdminText content={product.title} tag="h1" />
-      <AdminText content={product.body} tag="p" />
+      {admin ? (
+        <>
+          <AdminText content={product.title} tag="h1" />
+          <AdminText content={product.body} tag="p" />
+        </>
+      ) : (
+        <>
+          <h1>{product.title}</h1>
+          <p>{product.body}</p>
+        </>
+      )}
     </Section>
   );
 };

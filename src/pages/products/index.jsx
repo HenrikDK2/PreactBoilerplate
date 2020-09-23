@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import Icon from "../../components/Icon";
-import { useSetRecoilState } from "recoil";
-import { ProductFormModal } from "../../Store";
+import { useSetRecoilState, useRecoilValue } from "recoil";
+import { ProductFormModal, AdminModeState } from "../../Store";
 import ProductForm from "./ProductForm";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader";
@@ -61,7 +61,7 @@ const plusIcon = css`
 
 const Products = () => {
   const [products, setProducts] = useState();
-  const [admin, setAdmin] = useState(true);
+  const admin = useRecoilValue(AdminModeState);
   const setShowModal = useSetRecoilState(ProductFormModal);
   useEffect(() => {
     (async () => {
