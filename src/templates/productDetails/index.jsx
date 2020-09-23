@@ -55,7 +55,7 @@ const productDetails = () => {
   return (
     <Section>
       <Image ref={imageRef} style={imageStyle} src="/placeholder-image.jpg" alt="placeholder">
-        <ImageForm imageRef={imageRef} />
+        {admin && <ImageForm imageRef={imageRef} />}
       </Image>
       {admin ? (
         <>
