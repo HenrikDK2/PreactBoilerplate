@@ -21,20 +21,20 @@ const ContentGird = styled.ul`
   place-content: center;
 
   & li:nth-of-type(1) {
-    animation: SlideInX 0.5s 0.4s forwards;
+    animation: SlideInX 0.5s 0.3s forwards;
   }
 
   & li:nth-of-type(2) {
-    animation: SlideInX 0.6s 0.4s forwards;
+    animation: SlideInX 0.6s 0.3s forwards;
   }
   & li:nth-of-type(3) {
-    animation: SlideInX 0.7s 0.4s forwards;
+    animation: SlideInX 0.7s 0.3s forwards;
   }
   & li:nth-of-type(4) {
-    animation: SlideInX 0.8s 0.4s forwards;
+    animation: SlideInX 0.8s 0.3s forwards;
   }
   & li:nth-of-type(5) {
-    animation: SlideInX 0.9s 0.4s forwards;
+    animation: SlideInX 0.9s 0.3s forwards;
   }
 
   @media (min-width: 500px) {

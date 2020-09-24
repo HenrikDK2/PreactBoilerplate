@@ -3,8 +3,8 @@ import styled, { css } from "styled-components";
 import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import Icon from "../../components/Icon";
-import { useSetRecoilState, useRecoilValue } from "recoil";
-import { ProductFormModal, AdminModeState } from "../../Store";
+import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
+import { ProductFormModal, AdminModeState, ErrorHandlerState } from "../../Store";
 import ProductForm from "./ProductForm";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader";
@@ -63,10 +63,16 @@ const Products = () => {
   const [products, setProducts] = useState();
   const admin = useRecoilValue(AdminModeState);
   const setShowModal = useSetRecoilState(ProductFormModal);
+  const [errors, setError] = useRecoilState(ErrorHandlerState);
   useEffect(() => {
     (async () => {
-      const data = await myFetch("posts");
-      setProducts(data.splice(0, 4));
+      try {
+        const data = await myFetch("posts");
+        if (!data) throw "An error occurred. Please try again later!";
+        setProducts(data.splice(0, 4));
+      } catch (error) {
+        setError([...errors, error]);
+      }
     })();
   }, []);
 

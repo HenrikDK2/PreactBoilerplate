@@ -30,7 +30,5 @@ export const ThemeState = atom({
 
 export const ErrorHandlerState = atom({
   key: "ErrorHandlerState",
-  default: {
-    messages: [],
-  },
+  default: [],
 });

@@ -16,6 +16,9 @@ const Container = styled.div`
   position: relative;
   margin: 1rem 0;
   display: block;
+  p {
+    white-space: pre-line;
+  }
 `;
 
 const Form = styled.form`

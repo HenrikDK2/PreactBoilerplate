@@ -12,20 +12,44 @@ import Nav from "../components/Nav";
 import Header from "../components/Header";
 
 const ErrorContainer = styled.div`
+  @keyframes progress {
+    from {
+      width: 100%;
+    }
+
+    to {
+      width: 0%;
+    }
+  }
   position: fixed;
   top: 1rem;
   right: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
   z-index: 99999999999;
+  min-width: 100px;
+  animation: "ErrorSlideAnim" 6s;
+  background: rgba(255, 0, 12, 0.65);
   p {
-    background: rgba(255, 0, 12, 0.65);
-    color: #000;
-    padding: 0.5rem 1rem;
-    animation: "ErrorSlideAnim" 6s;
+    margin: 0;
+    font-size: 0.875rem;
+    color: #fff;
+    font-weight: 700;
+    &::after {
+      content: "";
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      height: 5px;
+      margin: 0.5rem 0;
+      animation: progress 5s 0.5s forwards linear;
+      background: #fff;
+    }
   }
 `;
 
 const Pages = () => {
-  const [errorHandler, setErrorHandler] = useRecoilState(ErrorHandlerState);
+  const [errors, setError] = useRecoilState(ErrorHandlerState);
 
   return (
     <>
@@ -38,29 +62,23 @@ const Pages = () => {
         <Route path="/products" exact component={Products} />
         <Route path="/products/:id" component={ProductDetails} />
       </main>
-      {/*       <button
-        onClick={(e) =>
-          setErrorHandler({ ...errorHandler, messages: [...errorHandler.messages, "test"] })
-        }
-      >
+      <button onClick={() => setError([...errors, "An error occurred. Please try again later!"])}>
         hej
       </button>
-      <ErrorContainer>
-        {errorHandler.messages[0] && (
-          <p
-            onAnimationEnd={(e) => {
-              if (e.animationName === "ErrorSlideAnim") {
-                e.target.remove();
-                let messages = [...errorHandler.messages];
-                messages.shift();
-                setErrorHandler({ ...errorHandler, messages });
-              }
-            }}
-          >
-            {errorHandler.messages[0]}
-          </p>
-        )}
-      </ErrorContainer> */}
+      {errors[0] && (
+        <ErrorContainer
+          onAnimationEnd={(e) => {
+            if (e.animationName === "ErrorSlideAnim") {
+              let errorsArr = [...errors];
+              errorsArr.shift();
+              e.target.remove();
+              setError(errorsArr);
+            }
+          }}
+        >
+          <p>{errors[0]}</p>
+        </ErrorContainer>
+      )}
     </>
   );
 };

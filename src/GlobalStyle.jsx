@@ -76,6 +76,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+
   :root{
     --content: 1000px;
     --primary: #ff2a70;
