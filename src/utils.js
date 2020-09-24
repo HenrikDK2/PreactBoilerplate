@@ -25,24 +25,37 @@ export function isTokenExpired() {
 }
 
 export async function myFetch(ressource, options, admin = false) {
-  if (admin) {
-    if (!sessionStorage.getItem("accessToken") || isTokenExpired()) await getToken();
+  try {
+    if (admin) {
+      if (!sessionStorage.getItem("accessToken") || isTokenExpired()) await getToken();
 
-    return fetch(process.env.API_ENDPOINT + ressource, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Bearer " + sessionStorage.getItem("accessToken"),
-      },
-      ...options,
-    }).then((res) => res.json());
-  } else {
-    return fetch(process.env.API_ENDPOINT + ressource, {
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      ...options,
-    }).then((res) => res.json());
-  }
+      //With Admin rights
+      const res = await fetch(process.env.API_ENDPOINT + ressource, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: "Bearer " + sessionStorage.getItem("accessToken"),
+        },
+        ...options,
+      });
+
+      if (!res.ok) {
+        new res();
+      }
+      return res.json();
+    } else {
+      //No admin rights
+      const res = await fetch(process.env.API_ENDPOINT + ressource, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        ...options,
+      });
+      if (!res.ok) {
+        throw res;
+      }
+      return res.json();
+    }
+  } catch (error) {}
 }
 export function fileValidation({ image, imageRef }) {
   const validArr = ["image/png", "image/jpg", "image/jpeg", "image/webp"];
