@@ -13,6 +13,9 @@ const Article = styled.article`
   max-width: 1000px;
   padding: 2rem;
   margin: 0 auto;
+  p {
+    word-break: break-word;
+  }
 `;
 
 const imageStyle = css`
