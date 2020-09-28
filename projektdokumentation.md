@@ -1,5 +1,6 @@
 # Preact - Boilerplate
 [Website er hosted på Netlify!](http://google.com)
+[Admin side!](http://google.com)
 <br/>
 ## Teknologier og begrundelse
 
