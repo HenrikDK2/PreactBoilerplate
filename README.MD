@@ -1,5 +1,5 @@
 # Preact - Boilerplate
-
+(Website er hosted på Netlify)[http://google.dk]
 <br/>
 <h2 style="color: #2e74b5">Teknologier og begrundelse</h2>
 
