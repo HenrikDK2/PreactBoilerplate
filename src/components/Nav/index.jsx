@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 import styled, { css } from "styled-components";
 import List from "./List";
 import { useRecoilState } from "recoil";
