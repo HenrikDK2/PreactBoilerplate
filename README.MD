@@ -1,4 +1,5 @@
 # Preact - Boilerplate
+[Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)
 [Website er hosted på Netlify!](http://google.com)
 <br/>
 <h2 style="color: #2e74b5">Teknologier og begrundelse</h2>
