@@ -1,9 +1,3 @@
-<style>
-*{
-  color:red;
-  }
-</style>
-
 # Preact - Boilerplate
 [Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)<br/>
 [Website er hosted på Netlify!](http://google.com)
