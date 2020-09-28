@@ -1,11 +1,21 @@
 # Preact - Boilerplate
+
 Henrik Mundt Milo - WUHF02<br/>
-[Website er hosted på Netlify!](http://google.com)<br/>
-[Admin side!](http://google.com)
+
+## AppStack
+
+- Preact
+- Webpack
+- Netlify
+- Heroku
+
+[Website online](http://google.com)<br/>
+[Login-formular](http://google.com)
 <br/>
+
 ## Teknologier og begrundelse
 
->  Preact: Jeg har brugt Preact fordi det er en hurtig alternativ til React som tilbyder et compatibility layer med React så jeg kan bruge React dependencies. Preact er et komponent baseret Javascript Framework der tilbyder fleksibilitet. Der er mange dependencies i forbindelse med React som forbedrer min arbejdsgang.
+> Preact: Jeg har brugt Preact fordi det er en hurtig alternativ til React som tilbyder et compatibility layer med React så jeg kan bruge React dependencies. Preact er et komponent baseret Javascript Framework der tilbyder fleksibilitet. Der er mange dependencies i forbindelse med React som forbedrer min arbejdsgang.
 
 > Recoil: Jeg har brugt Recoil som Global State Management library. Det tilbyder lidt mere funktionalitet i forhold til React useContext API, og det er en relative lille pakke.
 
@@ -13,12 +23,11 @@ Henrik Mundt Milo - WUHF02<br/>
 
 > Javascript: Jeg arbejder med Javascript i forbindelse med Preact som er bygget på Javascript, og det er det kodesprog som vi har arbejde mest med i undervisningen.
 
-## Teknisk dokumentation 
-## Soft Dokumentation 
-## Arbejdsprocessen 
+## Teknisk dokumentation
+
+## Arbejdsprocessen
 
 ## Kanban - Bilag
-
 
 [Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)<br/>
 ![](./kanban.png)
