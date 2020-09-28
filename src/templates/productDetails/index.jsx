@@ -6,8 +6,8 @@ import Image from "../../components/Image";
 import ImageForm from "./ImageForm";
 import Loader from "../../components/Loader";
 import AdminText from "./AdminText";
-import { useRecoilValue, useRecoilState } from "recoil";
-import { AdminModeState, ErrorHandlerState } from "../../Store";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { AdminModeState, AddErrorSelector } from "../../Store";
 
 const Article = styled.article`
   max-width: 1000px;
@@ -46,7 +46,7 @@ const imageStyleAdmin = css`
 const productDetails = () => {
   const imageRef = useRef(null);
   const admin = useRecoilValue(AdminModeState);
-  const [errors, setError] = useRecoilState(ErrorHandlerState);
+  const addError = useSetRecoilState(AddErrorSelector);
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   useEffect(() => {
@@ -56,7 +56,7 @@ const productDetails = () => {
         if (!data) throw "An error occurred. Please try again later!";
         setProduct(data);
       } catch (error) {
-        setError([...errors, error]);
+        addError(error);
       }
     })();
   }, []);

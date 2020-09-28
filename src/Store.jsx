@@ -1,4 +1,4 @@
-import { atom } from "recoil";
+import { atom, selector } from "recoil";
 
 export const IsMenuOpenState = atom({
   key: "IsMenuOpenState",
@@ -31,4 +31,13 @@ export const ThemeState = atom({
 export const ErrorHandlerState = atom({
   key: "ErrorHandlerState",
   default: [],
+});
+
+export const AddErrorSelector = selector({
+  key: "ErrorHandlerSelector",
+  set: ({ set, get }, value) => {
+    let Errors = get(ErrorHandlerState);
+    Errors = [...Errors, value];
+    set(ErrorHandlerState, Errors);
+  },
 });

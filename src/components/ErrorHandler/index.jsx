@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ErrorHandlerState } from "../../Store";
-import { useRecoilState } from "recoil";
+import { ErrorHandlerState, AddErrorSelector } from "../../Store";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 const ErrorContainer = styled.div`
   @keyframes progress {
@@ -42,12 +42,11 @@ const ErrorContainer = styled.div`
 
 const ErrorHandler = () => {
   const [errors, setError] = useRecoilState(ErrorHandlerState);
+  const addError = useSetRecoilState(AddErrorSelector);
 
   return (
     <>
-      <button onClick={() => setError([...errors, "An error occurred. Please try again later!"])}>
-        hej
-      </button>
+      <button onClick={() => addError("An error occurred. Please try again later!")}>hej</button>
 
       {errors[0] && (
         <ErrorContainer

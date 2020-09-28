@@ -4,7 +4,7 @@ import { myFetch } from "../../utils";
 import Image from "../../components/Image";
 import Icon from "../../components/Icon";
 import { useSetRecoilState, useRecoilValue, useRecoilState } from "recoil";
-import { ProductFormModal, AdminModeState, ErrorHandlerState } from "../../Store";
+import { ProductFormModal, AdminModeState, AddErrorSelector } from "../../Store";
 import ProductForm from "./ProductForm";
 import { Link } from "react-router-dom";
 import Loader from "../../components/Loader";
@@ -63,7 +63,7 @@ const Products = () => {
   const [products, setProducts] = useState();
   const admin = useRecoilValue(AdminModeState);
   const setShowModal = useSetRecoilState(ProductFormModal);
-  const [errors, setError] = useRecoilState(ErrorHandlerState);
+  const addError = useSetRecoilState(AddErrorSelector);
   useEffect(() => {
     (async () => {
       try {
@@ -71,7 +71,7 @@ const Products = () => {
         if (!data) throw "An error occurred. Please try again later!";
         setProducts(data.splice(0, 4));
       } catch (error) {
-        setError([...errors, error]);
+        addError(error);
       }
     })();
   }, []);
