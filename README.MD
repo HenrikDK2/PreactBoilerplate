@@ -10,3 +10,7 @@
 > Styled-components: Jeg har brugt Styled-components fordi pakken tilbyder Scss styling med Javascript funktionalitet som betingelser, og matematiske udregninger i styling, genbrugning af komponenters styles og mere.
 
 > Javascript: Jeg arbejder med Javascript i forbindelse med Preact som er bygget på Javascript, og det er det kodesprog som vi har arbejde mest med i undervisningen.
+
+<h2 style="color: #2e74b5">Teknisk dokumentation</h2>
+<h2 style="color: #2e74b5">Soft Dokumentation</h2>
+<h2 style="color: #2e74b5">Arbejdsprocessen</h2>
