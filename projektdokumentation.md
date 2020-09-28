@@ -19,4 +19,4 @@
 
 
 [Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)<br/>
-[](kanban.png)
+![](./kanban.png)
