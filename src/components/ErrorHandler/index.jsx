@@ -46,7 +46,7 @@ const ErrorHandler = () => {
 
   return (
     <>
-      <button onClick={() => addError("An error occurred. Please try again later!")}>hej</button>
+      {/*  <button onClick={() => addError("An error occurred. Please try again later!")}>hej</button> */}
 
       {errors[0] && (
         <ErrorContainer

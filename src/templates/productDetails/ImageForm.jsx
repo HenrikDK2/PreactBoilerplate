@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import Input from "../../components/FormInput";
 import { fileValidation } from "../../utils";
+import FormButton from "../../components/FormButton";
 
 const Form = styled.form`
   z-index: 1;
@@ -33,15 +34,7 @@ const Button = styled.button`
   width: max-content;
 `;
 
-const Cancel = styled.button`
-  padding: 0.5rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 900;
-  cursor: pointer;
-  background: #3dada7;
-  color: #fff;
-  width: max-content;
+const Cancel = styled(FormButton)`
   position: absolute;
   left: 1rem;
   bottom: 1rem;

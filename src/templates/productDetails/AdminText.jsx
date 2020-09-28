@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import Icon from "../../components/Icon";
 import { useForm } from "react-hook-form";
 import Input from "../../components/FormInput";
+import Button from "../../components/FormButton";
 
 const EditButton = styled(Icon)`
   color: #000;
@@ -24,6 +25,7 @@ const Form = styled.form`
   input,
   textarea {
     width: 100%;
+    box-sizing: border-box;
   }
   textarea {
     min-width: 100%;
@@ -31,24 +33,14 @@ const Form = styled.form`
   }
 `;
 
-const Cancel = styled.button`
-  padding: 0.5rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 900;
-  cursor: pointer;
-  background: #3dada7;
-  color: #fff;
-  width: max-content;
+const Cancel = styled(Button)`
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 1;
+  left: 0rem;
 `;
 
 const Submit = styled(Cancel)`
   left: initial;
-  right: 1rem;
+  right: 0rem;
 `;
 
 const FormContainer = styled(Container)`

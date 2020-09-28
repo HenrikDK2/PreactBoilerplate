@@ -4,6 +4,7 @@ import Index from "./index";
 import Contact from "./contact";
 import Gallery from "./gallery";
 import Products from "./products";
+import Login from "./login";
 import ProductDetails from "../templates/productDetails";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
@@ -20,6 +21,7 @@ const Pages = () => {
         <Route path="/gallery" component={Gallery} />
         <Route path="/products" exact component={Products} />
         <Route path="/products/:id" component={ProductDetails} />
+        <Route path="/admin" component={Login} />
       </main>
       <ErrorHandler />
     </>

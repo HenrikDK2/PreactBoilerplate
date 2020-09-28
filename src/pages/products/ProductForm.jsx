@@ -7,6 +7,7 @@ import { useRecoilState } from "recoil";
 import { ProductFormModal } from "../../Store";
 import { useForm } from "react-hook-form";
 import Input from "../../components/FormInput";
+import Button from "../../components/FormButton";
 
 const FormModal = styled(Modal)`
   width: 100%;
@@ -27,17 +28,6 @@ const Form = styled.form`
   [name="image"] {
     cursor: pointer;
   }
-`;
-const Button = styled.button`
-  padding: 0.5rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 900;
-  cursor: pointer;
-  background: #3dada7;
-  color: #fff;
-  width: max-content;
-  z-index: 1;
 `;
 
 const ButtonContainer = styled.div`
