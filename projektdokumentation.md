@@ -1,8 +1,7 @@
 # Preact - Boilerplate
-[Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)<br/>
 [Website er hosted på Netlify!](http://google.com)
 <br/>
-<h2 style="color: #2e74b5">Teknologier og begrundelse</h2>
+## Teknologier og begrundelse
 
 >  Preact: Jeg har brugt Preact fordi det er en hurtig alternativ til React som tilbyder et compatibility layer med React så jeg kan bruge React dependencies. Preact er et komponent baseret Javascript Framework der tilbyder fleksibilitet. Der er mange dependencies i forbindelse med React som forbedrer min arbejdsgang.
 
@@ -12,6 +11,12 @@
 
 > Javascript: Jeg arbejder med Javascript i forbindelse med Preact som er bygget på Javascript, og det er det kodesprog som vi har arbejde mest med i undervisningen.
 
-<h2 style="color: #2e74b5">Teknisk dokumentation</h2>
-<h2 style="color: #2e74b5">Soft Dokumentation</h2>
-<h2 style="color: #2e74b5">Arbejdsprocessen</h2>
+## Teknisk dokumentation 
+## Soft Dokumentation 
+## Arbejdsprocessen 
+
+## Kanban - Bilag
+
+
+[Kanban Board](https://trello.com/b/vFm5CY0t/eksamen)<br/>
+[](image.png)
