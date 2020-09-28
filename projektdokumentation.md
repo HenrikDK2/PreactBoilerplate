@@ -1,5 +1,5 @@
 # Preact - Boilerplate
-Henrik Mundt Milo - WUHF02
+Henrik Mundt Milo - WUHF02<br/>
 [Website er hosted på Netlify!](http://google.com)<br/>
 [Admin side!](http://google.com)
 <br/>
