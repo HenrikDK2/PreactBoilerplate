@@ -1,5 +1,5 @@
 # Preact - Boilerplate
-[Website er hosted på Netlify!](http://google.com)
+[Website er hosted på Netlify!](http://google.com)<br/>
 [Admin side!](http://google.com)
 <br/>
 ## Teknologier og begrundelse
